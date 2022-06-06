@@ -26,4 +26,4 @@ jobs:
       with:
           azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
           model_name: mlops-example-master
-          model_version: 1
+          model_version: 2
