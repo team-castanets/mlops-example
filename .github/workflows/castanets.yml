@@ -19,3 +19,5 @@ jobs:
           config-path: castanets.yaml
           issue-autoclose: true
           token: ${{ secrets.BOT_TOKEN }}
+          teams: true
+          teams-webhook-url: ${{ secrets.TEAMS_WEBHOOK_URL }}
