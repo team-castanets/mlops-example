@@ -1,6 +1,5 @@
 name: MLOps Example
 on:
-  push:
   issues:
     types: [opened]
   issue_comment: 
