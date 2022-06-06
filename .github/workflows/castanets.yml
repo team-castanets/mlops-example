@@ -1,0 +1,22 @@
+name: MLOps Example
+on:
+  push:
+  issues:
+    types: [opened]
+  issue_comment: 
+    types: [created]
+concurrency: castanets-${{ github.ref }}
+
+jobs:
+  mlops-process:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Castanets
+        id: castanets
+        uses: team-castanets/castanets@v1
+        if: "contains(github.event.issue.title, '[Castanets]')"  # Issue title keyword filter
+        with:
+          config-path: castanets.yaml
+          issue-autoclose: true
+          token: ${{ secrets.BOT_TOKEN }}
