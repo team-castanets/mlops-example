@@ -45,6 +45,6 @@ jobs:
         body: |
           # Azure ML Studio Alert
 
-          ** 🛫 Deploy Result**  
+          **🛫 Deploy Result**  
           - **Endpoint:** ${{ steps.aml_deploy.outputs.service_scoring_uri }}
           - **Swagger:** ${{ steps.aml_deploy.outputs.service_swagger_uri }}
