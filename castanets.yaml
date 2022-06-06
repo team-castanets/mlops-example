@@ -2,7 +2,7 @@ name: MLOps Example
 description: Best practice using Castanets in MLOps Field.
 stages:
   - name: Data Processing
-    label: data_prep
+    label: data_processing
     description: |
       📣 **New version of dataset released.**
       - **Name**: Iris Dataset
@@ -13,11 +13,13 @@ stages:
       reviewers: ["FYLSunghwan", "harrydrippin"]
       must_review: ["FYLSunghwan"]
       minimum_approval: 1
+    workflow:
+      filename: data_processing.yml
   - name: Training
     label: training
     description: |
       👩‍🏫 ** Training with Iris Dataset v{{ params.version }} is triggered!**
-      - **Model**: Simple SVM Classifier Model
+      - **Model**: Ssimple SVM Classifier Model
       
       You can check the training job here: [Azure ML Studio](https://ml.azure.com/experiments/id/0e5e99d0-b833-4182-97c8-5b11a8623d3b?wsid=/subscriptions/31f43912-b172-450b-a99a-1bf48a3b32dc/resourcegroups/mlops/workspaces/mlops-example&tid=4649ca82-62fd-4f74-8fc9-e0f7c1cc9b3e)
     review:

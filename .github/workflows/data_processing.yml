@@ -1,0 +1,7 @@
+name: Data Processing
+on: [workflow_dispatch]
+jobs:
+  data-processing:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'Data Processed!'
