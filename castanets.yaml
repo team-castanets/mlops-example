@@ -24,6 +24,10 @@ stages:
       reviewers: ["FYLSunghwan", "harrydrippin"]
       must_review: ["FYLSunghwan"]
       minimum_approval: 2
+    workflow:
+      filename: train.yml
+      inputs:
+        issue_id: {{ params.issue_id }}
   - name: Deployment
     label: Deployment
     description: |
@@ -35,3 +39,7 @@ stages:
       reviewers: ["FYLSunghwan", "harrydrippin"]
       must_review: ["FYLSunghwan"]
       minimum_approval: 1
+    workflow:
+      filename: deploy.yml
+      inputs:
+        issue_id: {{ params.issue_id }}

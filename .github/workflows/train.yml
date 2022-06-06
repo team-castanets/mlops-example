@@ -1,7 +1,12 @@
 # Actions train a model on Azure Machine Learning
 name: aml-train-workflow
 
-on: [workflow_dispatch]
+on:
+  workflow_dispatch:
+    inputs:
+      issue_id:
+        description: 'GitHub Issue ID to comment'     
+        required: true
 
 jobs:
   train:
@@ -41,3 +46,18 @@ jobs:
           azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
           run_id:  ${{ steps.aml_run.outputs.run_id }}
           experiment_name: ${{ steps.aml_run.outputs.experiment_name }}
+
+    # Create Comment
+    - name: Create comment
+      uses: peter-evans/create-or-update-comment@v2
+      with:
+        issue-number: ${{ github.event.inputs.issue_id }}
+        token: ${{ secrets.BOT_TOKEN }}
+        body: |
+          ### Azure ML Studio Alert
+
+          **👩‍🏫 Training Result**  
+          ${{ steps.aml_run.outputs.run_metrics_markdown}}
+
+          Model Pushed to:
+          - ${{ steps.aml_registermodel.outputs.model_name}}:${{ steps.aml_registermodel.outputs.model_version }}

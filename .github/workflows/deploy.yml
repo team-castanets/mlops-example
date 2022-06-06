@@ -1,7 +1,12 @@
 # Actions train a model on Azure Machine Learning
 name: aml-deploy-workflow
 
-on: [workflow_dispatch]
+on:
+  workflow_dispatch:
+    inputs:
+      issue_id:
+        description: 'GitHub Issue ID to comment'     
+        required: true
 
 jobs:
   train:
@@ -27,3 +32,16 @@ jobs:
           azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
           model_name: mlops-example-master
           model_version: 2
+
+    # Create Comment
+    - name: Create comment
+      uses: peter-evans/create-or-update-comment@v2
+      with:
+        issue-number: ${{ github.event.inputs.issue_id }}
+        token: ${{ secrets.BOT_TOKEN }}
+        body: |
+          ### Azure ML Studio Alert
+
+          ** 🛫 Deploy Result**  
+          - **Endpoint:** ${{ steps.aml_deploy.outputs.service_scoring_uri }}
+          - **Swagger:** ${{ steps.aml_deploy.outputs.service_swagger_uri }}

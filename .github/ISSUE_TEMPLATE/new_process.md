@@ -14,4 +14,5 @@ Detailed description of the process.
 <!-- DO NOT ERASE x-castanets: INDICATOR FOR CASTANETS PROCESS -->
 ```yaml castanets
 version: 1
+issue_id: 1
 ```
