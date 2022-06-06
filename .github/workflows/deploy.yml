@@ -40,7 +40,7 @@ jobs:
         issue-number: ${{ github.event.inputs.issue_id }}
         token: ${{ secrets.BOT_TOKEN }}
         body: |
-          ### Azure ML Studio Alert
+          # Azure ML Studio Alert
 
           ** 🛫 Deploy Result**  
           - **Endpoint:** ${{ steps.aml_deploy.outputs.service_scoring_uri }}

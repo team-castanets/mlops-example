@@ -54,10 +54,12 @@ jobs:
         issue-number: ${{ github.event.inputs.issue_id }}
         token: ${{ secrets.BOT_TOKEN }}
         body: |
-          ### Azure ML Studio Alert
+          # Azure ML Studio Alert
 
           **👩‍🏫 Training Result**  
           ${{ steps.aml_run.outputs.run_metrics_markdown}}
 
           Model Pushed to:
           - ${{ steps.aml_registermodel.outputs.model_name}}:${{ steps.aml_registermodel.outputs.model_version }}
+
+          [View in Azure ML Studio](https://ml.azure.com/model/${{ steps.aml_registermodel.outputs.model_name}}:${{ steps.aml_registermodel.outputs.model_version }}/details?wsid=/subscriptions/31f43912-b172-450b-a99a-1bf48a3b32dc/resourcegroups/mlops/workspaces/mlops-example&tid=4649ca82-62fd-4f74-8fc9-e0f7c1cc9b3e)

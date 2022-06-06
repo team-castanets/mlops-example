@@ -23,13 +23,13 @@ stages:
       
       You can check the training job here: [Azure ML Studio](https://ml.azure.com/experiments/id/0e5e99d0-b833-4182-97c8-5b11a8623d3b?wsid=/subscriptions/31f43912-b172-450b-a99a-1bf48a3b32dc/resourcegroups/mlops/workspaces/mlops-example&tid=4649ca82-62fd-4f74-8fc9-e0f7c1cc9b3e)
     review:
-      reviewers: ["FYLSunghwan"]
+      reviewers: ["FYLSunghwan", "harrydrippin"]
       must_review: ["FYLSunghwan"]
-      minimum_approval: 1
+      minimum_approval: 2
     workflow:
       filename: train.yml
       inputs:
-        issue_id: {{ params.issue_id }}
+        issue_id: "{{ params.issue_id }}"
   - name: Deployment
     label: Deployment
     description: |
@@ -38,10 +38,10 @@ stages:
 
       You can check the deployment process here: [Azure ML Studio](https://ml.azure.com/endpoints/realtime?wsid=/subscriptions/31f43912-b172-450b-a99a-1bf48a3b32dc/resourcegroups/mlops/workspaces/mlops-example&tid=4649ca82-62fd-4f74-8fc9-e0f7c1cc9b3e)
     review:
-      reviewers: ["FYLSunghwan"]
+      reviewers: ["FYLSunghwan", "harrydrippin"]
       must_review: ["FYLSunghwan"]
       minimum_approval: 1
     workflow:
       filename: deploy.yml
       inputs:
-        issue_id: {{ params.issue_id }}
+        issue_id: "{{ params.issue_id }}"
