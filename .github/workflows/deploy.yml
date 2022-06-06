@@ -7,6 +7,9 @@ on:
       issue_id:
         description: 'GitHub Issue ID to comment'     
         required: true
+      version:
+        description: 'Model Version'
+        required: true
 
 jobs:
   deploy:
@@ -31,7 +34,7 @@ jobs:
       with:
           azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
           model_name: mlops-example-master
-          model_version: 2
+          model_version: ${{ github.event.inputs.version }}
 
     # Create Comment
     - name: Create comment

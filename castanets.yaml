@@ -45,3 +45,4 @@ stages:
       filename: deploy.yml
       inputs:
         issue_id: "{{ params.issue_id }}"
+        version: "{{ params.version }}"
