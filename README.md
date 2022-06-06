@@ -8,6 +8,10 @@
 
 Used template: [machine-learning-apps/ml-template-azure](https://github.com/machine-learning-apps/ml-template-azure)
 
+## Castanets Demo
+
+**Check this Issue: [#6 [Castanets] Iris Model Training (v5)](https://github.com/team-castanets/mlops-example/issues?q=is%3Aissue+is%3Aclosed)**
+
 # What is MLOps?
 
 <p align="center">
