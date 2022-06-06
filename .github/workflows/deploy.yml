@@ -48,3 +48,5 @@ jobs:
           **🛫 Deploy Result**  
           - **Endpoint:** ${{ steps.aml_deploy.outputs.service_scoring_uri }}
           - **Swagger:** ${{ steps.aml_deploy.outputs.service_swagger_uri }}
+
+          [Go to Azure](https://ml.azure.com/endpoints/lists/realtimeendpoints/mlops-example-master/test?wsid=/subscriptions/31f43912-b172-450b-a99a-1bf48a3b32dc/resourcegroups/mlops/workspaces/mlops-example&tid=4649ca82-62fd-4f74-8fc9-e0f7c1cc9b3e)
